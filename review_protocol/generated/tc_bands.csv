@@ -1,0 +1,15 @@
+band,lower_k,upper_k,width_k,points,point_density_per_k,experimental_points,theoretical_points,unique_materials,unique_papers,top_families
+0-10,0,10,10,6149,614.9,5024,1125,2406,3315,Other:2097 elemental:840 chalcogenide:773 conventional:626 iron_based:619 heavy_fermion:476 cuprate:209 bismuthate:119
+10-20,10,20,10,2143,214.3,1655,488,961,1318,iron_based:891 cuprate:434 conventional:312 Other:246 borocarbide:82 organic:48 nickelate:28 chalcogenide:23
+20-30,20,30,10,1501,150.1,1181,320,708,974,iron_based:718 cuprate:544 Other:93 mgb2:45 conventional:34 hydride:22 bismuthate:19 fulleride:15
+30-40,30,40,10,1231,123.1,977,254,580,856,iron_based:514 cuprate:482 Other:81 mgb2:69 bismuthate:30 hydride:27 fulleride:15 nickelate:13
+40-50,40,50,10,540,54,396,144,305,399,iron_based:251 cuprate:196 hydride:36 Other:28 nickelate:17 fulleride:7 mgb2:4 elemental:1
+50-60,50,60,10,359,35.9,275,84,176,294,cuprate:193 iron_based:130 Other:18 hydride:16 organic:1 nickelate:1
+60-70,60,70,10,286,28.6,191,95,141,231,cuprate:241 Other:15 iron_based:13 hydride:11 nickelate:6
+70-80,70,80,10,272,27.2,208,64,140,213,cuprate:239 Other:20 hydride:6 iron_based:4 nickelate:2 fulleride:1
+80-90,80,90,10,560,56,436,124,211,398,cuprate:522 Other:16 hydride:11 fulleride:5 iron_based:3 chalcogenide:2 nickelate:1
+90-100,90,100,10,561,56.1,420,141,157,424,cuprate:522 Other:30 hydride:8 iron_based:1
+100-120,100,120,20,154,7.7,95,59,82,124,cuprate:110 Other:24 hydride:15 fulleride:5
+120-150,120,150,30,98,3.2666666666666666,48,50,59,68,cuprate:59 Other:20 hydride:14 fulleride:5
+150-200,150,200,50,78,1.56,11,67,38,41,hydride:51 Other:22 cuprate:3 fulleride:2
+200-251,200,251,51,67,1.3137254901960784,11,56,23,44,hydride:64 Other:2 cuprate:1

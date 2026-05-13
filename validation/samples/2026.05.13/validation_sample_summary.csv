@@ -1,0 +1,11 @@
+stratum,requested_or_all,unique_rows,deduplicated_total_sample
+random_timeline,300,300,1117
+tc_50_80_gap,150,150,1117
+tc_80_100_plateau,150,150,1117
+tc_ge_150_experimental_all,22,22,1117
+tc_ge_150_theoretical,100,100,1117
+iron_based_2008,100,100,1117
+hydride,100,100,1117
+nickelate,97,97,1117
+kagome,50,50,1117
+missing_family_or_unusual_formula,100,100,1117

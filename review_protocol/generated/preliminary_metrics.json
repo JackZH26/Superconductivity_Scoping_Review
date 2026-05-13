@@ -1,0 +1,616 @@
+{
+  "fetched_at": "2026-05-13T10:36:06.927Z",
+  "api_base": "https://api.jzis.org/sclib/v1",
+  "stats": {
+    "total_papers": 40057,
+    "total_materials": 14083,
+    "total_chunks": 895622,
+    "papers_by_year": {
+      "1993": 3,
+      "1994": 16,
+      "1995": 97,
+      "1996": 171,
+      "1997": 526,
+      "1998": 694,
+      "1999": 985,
+      "2000": 1051,
+      "2001": 1471,
+      "2002": 1410,
+      "2003": 1453,
+      "2004": 1507,
+      "2005": 1200,
+      "2006": 1041,
+      "2007": 1248,
+      "2008": 1620,
+      "2009": 1485,
+      "2010": 1170,
+      "2011": 1423,
+      "2012": 1497,
+      "2013": 1728,
+      "2014": 1494,
+      "2015": 1311,
+      "2016": 1063,
+      "2017": 1334,
+      "2018": 1276,
+      "2019": 1509,
+      "2020": 1385,
+      "2021": 1784,
+      "2022": 1703,
+      "2023": 1836,
+      "2024": 1655,
+      "2025": 1260,
+      "2026": 651
+    },
+    "top_material_families": [],
+    "last_ingest_at": "2026-05-12T15:33:40.124994+00:00",
+    "updated_at": "2026-05-13T09:54:14.819032+00:00",
+    "dataset_version": "v2026.05.12"
+  },
+  "timeline_coverage": {
+    "total_points": 13999,
+    "total_materials": 4949,
+    "year_min": 1994,
+    "year_max": 2026
+  },
+  "timeline_experimental_only_coverage": {
+    "total_points": 10928,
+    "total_materials": 3805,
+    "year_min": 1994,
+    "year_max": 2026
+  },
+  "material_family_counts": [
+    {
+      "family": "cuprate",
+      "default_material_rows": 1373
+    },
+    {
+      "family": "iron_based",
+      "default_material_rows": 1547
+    },
+    {
+      "family": "nickelate",
+      "default_material_rows": 101
+    },
+    {
+      "family": "hydride",
+      "default_material_rows": 251
+    },
+    {
+      "family": "mgb2",
+      "default_material_rows": 126
+    },
+    {
+      "family": "heavy_fermion",
+      "default_material_rows": 179
+    },
+    {
+      "family": "fulleride",
+      "default_material_rows": 36
+    },
+    {
+      "family": "kagome",
+      "default_material_rows": 20
+    },
+    {
+      "family": "organic",
+      "default_material_rows": 86
+    },
+    {
+      "family": "bismuthate",
+      "default_material_rows": 93
+    },
+    {
+      "family": "borocarbide",
+      "default_material_rows": 16
+    },
+    {
+      "family": "ruthenate",
+      "default_material_rows": 11
+    },
+    {
+      "family": "chalcogenide",
+      "default_material_rows": 490
+    },
+    {
+      "family": "elemental",
+      "default_material_rows": 63
+    },
+    {
+      "family": "conventional",
+      "default_material_rows": 229
+    }
+  ],
+  "family_coverage": [
+    {
+      "family": "cuprate",
+      "timeline_points": 3755,
+      "timeline_materials": 976,
+      "year_min": 1994,
+      "year_max": 2026
+    },
+    {
+      "family": "iron_based",
+      "timeline_points": 3144,
+      "timeline_materials": 1222,
+      "year_min": 2000,
+      "year_max": 2026
+    },
+    {
+      "family": "nickelate",
+      "timeline_points": 126,
+      "timeline_materials": 62,
+      "year_min": 2008,
+      "year_max": 2026
+    },
+    {
+      "family": "hydride",
+      "timeline_points": 355,
+      "timeline_materials": 220,
+      "year_min": 2012,
+      "year_max": 2026
+    },
+    {
+      "family": "mgb2",
+      "timeline_points": 151,
+      "timeline_materials": 92,
+      "year_min": 2001,
+      "year_max": 2023
+    },
+    {
+      "family": "heavy_fermion",
+      "timeline_points": 484,
+      "timeline_materials": 128,
+      "year_min": 1996,
+      "year_max": 2026
+    },
+    {
+      "family": "fulleride",
+      "timeline_points": 75,
+      "timeline_materials": 25,
+      "year_min": 1996,
+      "year_max": 2023
+    },
+    {
+      "family": "kagome",
+      "timeline_points": 113,
+      "timeline_materials": 15,
+      "year_min": 2011,
+      "year_max": 2026
+    },
+    {
+      "family": "organic",
+      "timeline_points": 161,
+      "timeline_materials": 58,
+      "year_min": 1997,
+      "year_max": 2025
+    },
+    {
+      "family": "bismuthate",
+      "timeline_points": 184,
+      "timeline_materials": 73,
+      "year_min": 1996,
+      "year_max": 2024
+    },
+    {
+      "family": "borocarbide",
+      "timeline_points": 103,
+      "timeline_materials": 11,
+      "year_min": 1995,
+      "year_max": 2024
+    },
+    {
+      "family": "ruthenate",
+      "timeline_points": 16,
+      "timeline_materials": 8,
+      "year_min": 1997,
+      "year_max": 2019
+    },
+    {
+      "family": "chalcogenide",
+      "timeline_points": 798,
+      "timeline_materials": 369,
+      "year_min": 1997,
+      "year_max": 2026
+    },
+    {
+      "family": "elemental",
+      "timeline_points": 850,
+      "timeline_materials": 45,
+      "year_min": 1996,
+      "year_max": 2026
+    },
+    {
+      "family": "conventional",
+      "timeline_points": 972,
+      "timeline_materials": 190,
+      "year_min": 1997,
+      "year_max": 2026
+    }
+  ],
+  "tc_bands": [
+    {
+      "band": "0-10",
+      "lower_k": 0,
+      "upper_k": 10,
+      "width_k": 10,
+      "points": 6149,
+      "point_density_per_k": 614.9,
+      "experimental_points": 5024,
+      "theoretical_points": 1125,
+      "unique_materials": 2406,
+      "unique_papers": 3315,
+      "top_families": "Other:2097 elemental:840 chalcogenide:773 conventional:626 iron_based:619 heavy_fermion:476 cuprate:209 bismuthate:119"
+    },
+    {
+      "band": "10-20",
+      "lower_k": 10,
+      "upper_k": 20,
+      "width_k": 10,
+      "points": 2143,
+      "point_density_per_k": 214.3,
+      "experimental_points": 1655,
+      "theoretical_points": 488,
+      "unique_materials": 961,
+      "unique_papers": 1318,
+      "top_families": "iron_based:891 cuprate:434 conventional:312 Other:246 borocarbide:82 organic:48 nickelate:28 chalcogenide:23"
+    },
+    {
+      "band": "20-30",
+      "lower_k": 20,
+      "upper_k": 30,
+      "width_k": 10,
+      "points": 1501,
+      "point_density_per_k": 150.1,
+      "experimental_points": 1181,
+      "theoretical_points": 320,
+      "unique_materials": 708,
+      "unique_papers": 974,
+      "top_families": "iron_based:718 cuprate:544 Other:93 mgb2:45 conventional:34 hydride:22 bismuthate:19 fulleride:15"
+    },
+    {
+      "band": "30-40",
+      "lower_k": 30,
+      "upper_k": 40,
+      "width_k": 10,
+      "points": 1231,
+      "point_density_per_k": 123.1,
+      "experimental_points": 977,
+      "theoretical_points": 254,
+      "unique_materials": 580,
+      "unique_papers": 856,
+      "top_families": "iron_based:514 cuprate:482 Other:81 mgb2:69 bismuthate:30 hydride:27 fulleride:15 nickelate:13"
+    },
+    {
+      "band": "40-50",
+      "lower_k": 40,
+      "upper_k": 50,
+      "width_k": 10,
+      "points": 540,
+      "point_density_per_k": 54,
+      "experimental_points": 396,
+      "theoretical_points": 144,
+      "unique_materials": 305,
+      "unique_papers": 399,
+      "top_families": "iron_based:251 cuprate:196 hydride:36 Other:28 nickelate:17 fulleride:7 mgb2:4 elemental:1"
+    },
+    {
+      "band": "50-60",
+      "lower_k": 50,
+      "upper_k": 60,
+      "width_k": 10,
+      "points": 359,
+      "point_density_per_k": 35.9,
+      "experimental_points": 275,
+      "theoretical_points": 84,
+      "unique_materials": 176,
+      "unique_papers": 294,
+      "top_families": "cuprate:193 iron_based:130 Other:18 hydride:16 organic:1 nickelate:1"
+    },
+    {
+      "band": "60-70",
+      "lower_k": 60,
+      "upper_k": 70,
+      "width_k": 10,
+      "points": 286,
+      "point_density_per_k": 28.6,
+      "experimental_points": 191,
+      "theoretical_points": 95,
+      "unique_materials": 141,
+      "unique_papers": 231,
+      "top_families": "cuprate:241 Other:15 iron_based:13 hydride:11 nickelate:6"
+    },
+    {
+      "band": "70-80",
+      "lower_k": 70,
+      "upper_k": 80,
+      "width_k": 10,
+      "points": 272,
+      "point_density_per_k": 27.2,
+      "experimental_points": 208,
+      "theoretical_points": 64,
+      "unique_materials": 140,
+      "unique_papers": 213,
+      "top_families": "cuprate:239 Other:20 hydride:6 iron_based:4 nickelate:2 fulleride:1"
+    },
+    {
+      "band": "80-90",
+      "lower_k": 80,
+      "upper_k": 90,
+      "width_k": 10,
+      "points": 560,
+      "point_density_per_k": 56,
+      "experimental_points": 436,
+      "theoretical_points": 124,
+      "unique_materials": 211,
+      "unique_papers": 398,
+      "top_families": "cuprate:522 Other:16 hydride:11 fulleride:5 iron_based:3 chalcogenide:2 nickelate:1"
+    },
+    {
+      "band": "90-100",
+      "lower_k": 90,
+      "upper_k": 100,
+      "width_k": 10,
+      "points": 561,
+      "point_density_per_k": 56.1,
+      "experimental_points": 420,
+      "theoretical_points": 141,
+      "unique_materials": 157,
+      "unique_papers": 424,
+      "top_families": "cuprate:522 Other:30 hydride:8 iron_based:1"
+    },
+    {
+      "band": "100-120",
+      "lower_k": 100,
+      "upper_k": 120,
+      "width_k": 20,
+      "points": 154,
+      "point_density_per_k": 7.7,
+      "experimental_points": 95,
+      "theoretical_points": 59,
+      "unique_materials": 82,
+      "unique_papers": 124,
+      "top_families": "cuprate:110 Other:24 hydride:15 fulleride:5"
+    },
+    {
+      "band": "120-150",
+      "lower_k": 120,
+      "upper_k": 150,
+      "width_k": 30,
+      "points": 98,
+      "point_density_per_k": 3.2666666666666666,
+      "experimental_points": 48,
+      "theoretical_points": 50,
+      "unique_materials": 59,
+      "unique_papers": 68,
+      "top_families": "cuprate:59 Other:20 hydride:14 fulleride:5"
+    },
+    {
+      "band": "150-200",
+      "lower_k": 150,
+      "upper_k": 200,
+      "width_k": 50,
+      "points": 78,
+      "point_density_per_k": 1.56,
+      "experimental_points": 11,
+      "theoretical_points": 67,
+      "unique_materials": 38,
+      "unique_papers": 41,
+      "top_families": "hydride:51 Other:22 cuprate:3 fulleride:2"
+    },
+    {
+      "band": "200-251",
+      "lower_k": 200,
+      "upper_k": 251,
+      "width_k": 51,
+      "points": 67,
+      "point_density_per_k": 1.3137254901960784,
+      "experimental_points": 11,
+      "theoretical_points": 56,
+      "unique_materials": 23,
+      "unique_papers": 44,
+      "top_families": "hydride:64 Other:2 cuprate:1"
+    }
+  ],
+  "evidence_regimes": [
+    {
+      "regime": "experimental_ambient_or_low_pressure",
+      "points": 3542,
+      "unique_materials": 1457,
+      "unique_papers": 1750,
+      "max_tc_k": 134
+    },
+    {
+      "regime": "theoretical_ambient_or_low_pressure",
+      "points": 1126,
+      "unique_materials": 691,
+      "unique_papers": 561,
+      "max_tc_k": 175
+    },
+    {
+      "regime": "theoretical_unknown_pressure",
+      "points": 1486,
+      "unique_materials": 882,
+      "unique_papers": 875,
+      "max_tc_k": 250
+    },
+    {
+      "regime": "experimental_high_pressure",
+      "points": 622,
+      "unique_materials": 293,
+      "unique_papers": 318,
+      "max_tc_k": 250
+    },
+    {
+      "regime": "experimental_unknown_pressure",
+      "points": 6764,
+      "unique_materials": 2636,
+      "unique_papers": 3366,
+      "max_tc_k": 244
+    },
+    {
+      "regime": "theoretical_high_pressure",
+      "points": 459,
+      "unique_materials": 234,
+      "unique_papers": 190,
+      "max_tc_k": 250
+    }
+  ],
+  "burst_candidates": [
+    {
+      "family": "iron_based",
+      "year": 2008,
+      "points": 356,
+      "unique_materials": 206,
+      "unique_papers": 190,
+      "experimental_points": 311,
+      "theoretical_points": 45,
+      "max_tc_k": 57.4,
+      "prev3_avg_points": 0,
+      "burst_score": 357,
+      "burst_candidate": true
+    },
+    {
+      "family": "kagome",
+      "year": 2021,
+      "points": 30,
+      "unique_materials": 3,
+      "unique_papers": 15,
+      "experimental_points": 28,
+      "theoretical_points": 2,
+      "max_tc_k": 8.9,
+      "prev3_avg_points": 1,
+      "burst_score": 15.5,
+      "burst_candidate": true
+    },
+    {
+      "family": "bismuthate",
+      "year": 2013,
+      "points": 27,
+      "unique_materials": 11,
+      "unique_papers": 10,
+      "experimental_points": 20,
+      "theoretical_points": 7,
+      "max_tc_k": 7.6,
+      "prev3_avg_points": 1.3333333333333333,
+      "burst_score": 12.000000000000002,
+      "burst_candidate": true
+    },
+    {
+      "family": "cuprate",
+      "year": 1996,
+      "points": 37,
+      "unique_materials": 20,
+      "unique_papers": 17,
+      "experimental_points": 27,
+      "theoretical_points": 10,
+      "max_tc_k": 126,
+      "prev3_avg_points": 4.333333333333333,
+      "burst_score": 7.125,
+      "burst_candidate": true
+    },
+    {
+      "family": "mgb2",
+      "year": 2002,
+      "points": 34,
+      "unique_materials": 25,
+      "unique_papers": 12,
+      "experimental_points": 26,
+      "theoretical_points": 8,
+      "max_tc_k": 38.4,
+      "prev3_avg_points": 5,
+      "burst_score": 5.833333333333333,
+      "burst_candidate": true
+    },
+    {
+      "family": "conventional",
+      "year": 2001,
+      "points": 29,
+      "unique_materials": 12,
+      "unique_papers": 23,
+      "experimental_points": 16,
+      "theoretical_points": 13,
+      "max_tc_k": 14.7,
+      "prev3_avg_points": 4.333333333333333,
+      "burst_score": 5.625,
+      "burst_candidate": true
+    },
+    {
+      "family": "cuprate",
+      "year": 1997,
+      "points": 78,
+      "unique_materials": 40,
+      "unique_papers": 40,
+      "experimental_points": 65,
+      "theoretical_points": 13,
+      "max_tc_k": 100,
+      "prev3_avg_points": 16.666666666666668,
+      "burst_score": 4.471698113207547,
+      "burst_candidate": true
+    },
+    {
+      "family": "bismuthate",
+      "year": 2014,
+      "points": 45,
+      "unique_materials": 30,
+      "unique_papers": 19,
+      "experimental_points": 42,
+      "theoretical_points": 3,
+      "max_tc_k": 32,
+      "prev3_avg_points": 10,
+      "burst_score": 4.181818181818182,
+      "burst_candidate": true
+    },
+    {
+      "family": "cuprate",
+      "year": 1999,
+      "points": 259,
+      "unique_materials": 108,
+      "unique_papers": 106,
+      "experimental_points": 213,
+      "theoretical_points": 46,
+      "max_tc_k": 127,
+      "prev3_avg_points": 75.33333333333333,
+      "burst_score": 3.4061135371179043,
+      "burst_candidate": true
+    },
+    {
+      "family": "chalcogenide",
+      "year": 2013,
+      "points": 54,
+      "unique_materials": 29,
+      "unique_papers": 24,
+      "experimental_points": 46,
+      "theoretical_points": 8,
+      "max_tc_k": 10.7,
+      "prev3_avg_points": 15.666666666666666,
+      "burst_score": 3.3000000000000003,
+      "burst_candidate": true
+    },
+    {
+      "family": "heavy_fermion",
+      "year": 2000,
+      "points": 22,
+      "unique_materials": 14,
+      "unique_papers": 12,
+      "experimental_points": 19,
+      "theoretical_points": 3,
+      "max_tc_k": 7.6,
+      "prev3_avg_points": 6.333333333333333,
+      "burst_score": 3.1363636363636367,
+      "burst_candidate": true
+    },
+    {
+      "family": "organic",
+      "year": 2001,
+      "points": 21,
+      "unique_materials": 11,
+      "unique_papers": 11,
+      "experimental_points": 18,
+      "theoretical_points": 3,
+      "max_tc_k": 12.8,
+      "prev3_avg_points": 6.333333333333333,
+      "burst_score": 3,
+      "burst_candidate": true
+    }
+  ]
+}

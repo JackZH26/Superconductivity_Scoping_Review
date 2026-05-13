@@ -1,0 +1,170 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[numbers,sort&compress]{natbib}
+\graphicspath{{figures/}}
+\emergencystretch=2em
+
+\title{Thirty Years of Superconducting Materials Research, 1996--2026: A Scoping Review Based on a Provenance-Traced LLM-Curated arXiv Materials Database}
+
+\author{Jian Zhou\thanks{Principal Investigator, JZ Institute of Science, Hong Kong, China.
+Email: \texttt{jack@jzis.org}.}}
+
+\date{Draft version: May 13, 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Superconducting materials research over the last three decades has not evolved as a smooth monotonic progression toward higher critical temperature. Using SCLib, a provenance-traced superconductivity literature and materials database built from more than 40,000 arXiv superconductivity papers, this scoping review maps the 1996--2026 landscape of reported superconducting transition temperatures, material families, pressure regimes, and theory--experiment relationships. The preliminary public SCLib snapshot reveals a stratified Tc landscape: a dense low-temperature region below 50 K, a sparsely populated 50--80 K middle-high-temperature band, an 80--100 K cuprate-dominated plateau, and a 150 K+ high-pressure hydride frontier dominated by theoretical and pressure-dependent records. Family-level burst analysis identifies several research waves, including MgB2 after 2001, iron-based superconductors in 2008, hydrides after 2015, kagome superconductors in 2021, and nickelates after 2019 and 2023. The review combines quantitative timeline analysis with manual validation of high-risk records to distinguish robust materials trends from repeated-measurement density, theoretical predictions, pressure effects, and LLM extraction artifacts.
+\end{abstract}
+
+\section{Introduction}
+
+The discovery record of superconducting materials is often narrated as a search for higher transition temperature, yet the literature itself shows a more structured pattern. Different families occupy different regions of the Tc--time plane: conventional and elemental superconductors dominate low Tc, cuprates form a persistent high-temperature ambient-pressure platform, iron-based materials define a broad intermediate family after 2008, and hydrides have moved the high-Tc frontier into an extreme-pressure regime.
+
+This paper uses SCLib to convert that visual timeline into a reproducible scoping review. The central question is not only which materials achieved the highest Tc, but how research density, family emergence, theoretical prediction, experimental confirmation, and pressure dependence co-evolved from 1996 to 2026.
+
+\section{Data and Methods}
+
+\subsection{SCLib Corpus}
+
+SCLib indexes arXiv superconductivity papers, parses available full text, chunks the corpus for semantic retrieval, and extracts superconducting materials records using an LLM-assisted named-entity recognition pipeline. The API-level snapshot used for the first analysis pass was frozen on May 13, 2026 as \texttt{v2026.05.12}. It contains 40,057 papers, 14,083 material rows, 895,622 text chunks, 13,999 public timeline points, and 10,928 experimental-only timeline points.
+
+The final manuscript analysis will use a frozen database-level export rather than the live public API. The current API snapshot is used to define the analysis plan and generate the first set of reproducible figures.
+
+\subsection{Timeline Units}
+
+Three analysis units are distinguished throughout:
+
+\begin{enumerate}
+  \item Measurement-level records, which preserve repeated reported Tc values.
+  \item Material-year-level timeline points, which approximate the public SCLib timeline after de-duplication by material, year, Tc, pressure, and evidence type.
+  \item Material-level records, which summarize each canonical formula.
+\end{enumerate}
+
+\subsection{Tc Regimes}
+
+The timeline is partitioned into seven working regimes: 0--10 K, 10--30 K, 30--50 K, 50--80 K, 80--100 K, 100--150 K, and 150--250 K. The 50--80 K band is treated as a candidate middle-high-temperature gap. The 80--100 K band is tested as a cuprate plateau. The 150 K+ region is analyzed separately because pressure and theory dominate the evidence regime.
+
+\subsection{Family Burst Detection}
+
+For each family $f$ and year $y$, we compute the point count $C_{f,y}$, material count $M_{f,y}$, source-paper count $P_{f,y}$, and maximum Tc. Burst score is defined as
+
+\begin{equation}
+  B_{f,y} = \frac{C_{f,y} + 1}{\mathrm{mean}(C_{f,y-1}, C_{f,y-2}, C_{f,y-3}) + 1}.
+\end{equation}
+
+A candidate burst requires $C_{f,y} \geq 20$, $M_{f,y} \geq 3$, and $B_{f,y} \geq 3$. Candidate bursts are manually reviewed to exclude review-article artifacts and large comparison tables.
+
+\subsection{Theory, Experiment, and Pressure}
+
+Records are classified into experimental or theoretical categories, then crossed with pressure class: ambient or low pressure, high pressure, and unknown pressure. Missing pressure is not treated as ambient. Yearly Tc envelopes are reported separately for each evidence regime.
+
+\subsection{Validation}
+
+Manual validation is required for all headline claims, including high-Tc outliers, family burst anchors, the 50--80 K gap, the 80--100 K cuprate plateau, hydride records above 150 K, and nickelate records above 50 K. Field-level validation records formula correctness, family label, Tc, pressure value, pressure role, ambient status, theory/experiment classification, and primary-versus-cited evidence type.
+
+\section{Results}
+
+\subsection{The Global Tc Landscape}
+
+The complete-year API snapshot from 1996--2025 contains 13,724 public SCLib timeline points after the website's conservative filtering. The distribution is not smooth. Instead, the timeline separates into a dense low-Tc region below 50 K, a much thinner 50--80 K band, a renewed density peak at 80--100 K, and a high-pressure frontier above 150 K.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.95\linewidth]{fig_tc_band_counts.png}
+  \caption{Timeline-point counts by Tc band for the frozen SCLib API snapshot, complete years 1996--2025. The 50--80 K band is visibly sparse relative to both the broad low-Tc region and the cuprate-dominated 80--100 K band.}
+  \label{fig:tc-bands}
+\end{figure}
+
+Aggregating the bands, the 0--50 K region contains 11,315 timeline points, compared with 905 points in the 50--80 K band, 1,112 points in the 80--100 K band, 249 points in the 100--150 K band, and 143 points in the 150--251 K band. The 50--80 K point-density ratio relative to the adjacent 30--50 K and 80--100 K regions is 0.422. The material-weighted version is similar, 0.447, suggesting that the visual gap is not solely a repeated-measurement artifact.
+
+\subsection{The 50--80 K Gap}
+
+The 50--80 K band is tested against adjacent 30--50 K and 80--100 K regimes using point density and material density. This analysis separates repeated measurements from independent material occupancy. In the complete-year snapshot, the 50--80 K band contains 905 points, led by cuprates (666 points) and iron-based materials (146 points). This composition indicates that the band is not empty, but it lacks the dense, reproducible platform seen in the 80--100 K cuprate regime.
+
+\subsection{The 80--100 K Cuprate Plateau}
+
+Preliminary API-level data show that the 80--100 K band is dominated by cuprates, with YBa2Cu3O7-delta and related YBCO variants contributing a large fraction of repeated timeline points. In the complete-year snapshot, cuprates account for 1,037 of 1,112 points in this band (93.3\%). Thus the 80--100 K region should be interpreted as a cuprate plateau rather than as a broadly populated multi-family high-Tc band.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.95\linewidth]{fig_family_tc_regime_counts.png}
+  \caption{Family composition across Tc regimes. The 80--100 K regime is overwhelmingly cuprate-dominated, while the lower-temperature regimes are distributed across iron-based, conventional, elemental, chalcogenide, heavy-fermion, and other families.}
+  \label{fig:family-regimes}
+\end{figure}
+
+\subsection{Family Burst Events}
+
+The strongest preliminary burst is the 2008 iron-based wave. Canonical external discovery anchoring is provided by Kamihara et al.'s report of La[O1-xFx]FeAs with Tc = 26 K \cite{kamihara2008iron}. SCLib's arXiv timeline captures rapid follow-on activity through LaFeAsO and rare-earth FeAsO variants within 2008.
+
+Other candidate bursts include MgB2 after the 2001 discovery of 39 K superconductivity \cite{nagamatsu2001mgb2}, high-pressure hydrides after sulfur hydride at 203 K \cite{drozdov2015h3s}, kagome superconductors after the AV3Sb5 wave, and nickelates after infinite-layer and bilayer discoveries \cite{li2019nickelate,sun2023nickelate}.
+
+Using the burst score defined above, the iron-based 2008 event is the largest candidate in the complete-year snapshot: 356 timeline points, 206 unique material labels, 190 source papers, and a burst score of 357. Within 2008, iron-based activity appears immediately in March and remains high through the year, with the largest monthly count in June (76 points, 56 material labels, 41 source papers). Preliminary validation of a 100-row iron-based 2008 sample supports the burst as a real discovery-driven wave rather than a pure extraction artifact, while also revealing theory--experiment flag errors in several experimental spectroscopy, transport, synthesis, and thermodynamic papers. Other candidate events include kagome superconductors in 2021, MgB2 in 2002, bismuthates in 2013--2014, and chalcogenides in 2013; each requires manual validation before being described as a true discovery-driven burst.
+
+\subsection{Theory Versus Experiment}
+
+The 150 K+ region is dominated by high-pressure and theoretical hydride records. This regime is not directly comparable to the ambient-pressure cuprate plateau and must be reported with pressure and evidence class. In the complete-year snapshot, the 150--251 K regime contains 143 points, of which 113 are tagged as hydrides. The evidence-regime split further shows why pressure metadata matters: the maximum experimental ambient-or-low-pressure Tc in the current public snapshot is 134 K, whereas high-pressure or unknown-pressure experimental records and theoretical records extend to much higher values.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.95\linewidth]{fig_evidence_regime_tc_envelope.png}
+  \caption{Yearly maximum Tc separated by evidence and pressure regime. Missing pressure is not treated as ambient; records with unknown pressure are shown as separate regimes.}
+  \label{fig:evidence-envelope}
+\end{figure}
+
+\section{Data Quality and Preliminary Validation}
+
+The first validation pass targeted the highest-risk stratum: all 22 timeline records marked as experimental with Tc at or above 150 K in the frozen public snapshot. This preliminary check used the SCLib paper endpoint, SCLib material-extraction records where available, and arXiv abstract metadata; final manuscript validation will require human full-text verification.
+
+In this high-Tc experimental subset, 20 of 22 records were provisionally retained for the main analysis. Formula, family, Tc, and theory/experiment labels were correct for 21 of 22 records each. Ambient status was correct for all 22 records: none of these high-Tc records should be treated as ambient-pressure superconductivity. Pressure was the weakest field, with 17 of 22 pressure values and 16 of 22 pressure roles judged valid in the API-level precheck. Two records were marked for exclusion: one carbonaceous sulfur hydride entry derived from a secondary analysis of previously reported data, and one lanthanum hydride entry from an NMR/hydrogen-diffusion study rather than a primary superconducting Tc measurement.
+
+This first validation pass supports the main qualitative interpretation of the 150 K+ region as a high-pressure hydride frontier, but it also shows why pressure and evidence type must be validated before drawing quantitative pressure--Tc conclusions.
+
+The second validation pass targeted the iron-based 2008 burst sample, covering 100 records from 80 unique arXiv papers. Formula and Tc were each valid for 98 of 100 records, pressure value for 100 of 100 records, pressure role for 98 of 100 records, the family label for all 100 records, and primary-versus-cited evidence for 99 of 100 records. Two rows were provisionally excluded from the main quantitative analysis: one contextual PrFeAsO record in a LaFeAsO point-contact spectroscopy paper, and one 0.5 K value extracted as Tc in a phonon-density-of-states paper. The largest weakness was the theory--experiment flag: 12 of 100 rows labelled as theoretical were corrected to experimental source records. Two rows also show a pressure-role ambiguity, where high-pressure synthesis conditions should not be treated as high-pressure Tc measurement conditions.
+
+The third validation pass targeted the two Tc bands that motivate the landscape analysis: 150 sampled records from the 50--80 K gap and 150 sampled records from the 80--100 K plateau. Formula validity was 150 of 150 in both bands, and Tc validity was 147 of 150 in both bands. Evidence provenance was much weaker. In the 50--80 K sample, 95 of 150 rows were primary, 50 were unresolved at API/abstract level, and 5 were cited/contextual. In the 80--100 K sample, 65 of 150 rows were primary, 84 were unresolved, and 1 was cited/contextual. This supports the visual reality of the Tc-band structure at the formula/Tc level, but it also shows that plateau and gap claims must be repeated after primary-evidence filtering and full-text review of unresolved cuprate-heavy rows.
+
+\section{Discussion}
+
+\subsection{A Stratified Rather Than Continuous Search Space}
+
+The database-driven view suggests that the superconducting materials search space is organized into regimes separated by family, mechanism, and pressure constraints.
+
+\subsection{Why the 50--80 K Band Matters}
+
+The 50--80 K band is scientifically important because it lies between the main non-cuprate high end and the cuprate plateau. Materials that robustly fill this region, especially at ambient pressure, may represent bridges between established mechanisms.
+
+\subsection{Burst Events as Literature Phase Transitions}
+
+Family burst events provide a quantitative way to identify when a discovery transformed the research field, not merely when one high-Tc value appeared.
+
+\subsection{Limitations}
+
+The analysis is limited by arXiv coverage, LLM extraction errors, repeated-measurement bias, missing pressure fields, and theory/experiment classification uncertainty. The year 2026 is partial and must be interpreted separately.
+
+\section{Outlook}
+
+Future work should combine SCLib with direct database exports, manual curation of high-impact records, citation graph analysis, and family-specific validation to identify underexplored material regimes and promising theory-to-experiment translation pathways.
+
+\section*{Declarations}
+
+\textbf{Funding}: Not applicable.
+
+\textbf{Conflict of interest}: The author declares no conflict of interest.
+
+\textbf{Data availability}: All data and code supporting this work are available 
+from the corresponding author upon reasonable request.
+
+\textbf{Ethics approval}: Not applicable.
+
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+
+\end{document}

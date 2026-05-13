@@ -1,0 +1,7 @@
+evidence_regime,points,unique_materials,unique_papers,max_tc_k
+experimental_unknown_pressure,6675,2607,3317,244.0
+experimental_ambient_or_low_pressure,3466,1413,1710,134.0
+theoretical_unknown_pressure,1446,864,856,250.0
+theoretical_ambient_or_low_pressure,1095,665,545,175.0
+experimental_high_pressure,590,279,305,250.0
+theoretical_high_pressure,452,228,185,250.0

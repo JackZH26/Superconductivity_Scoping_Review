@@ -1,0 +1,9 @@
+{
+  "status": "skipped",
+  "reason": "AuthenticationError on probe: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'invalid x-api-key'}, 'request_id': 'req_011CazjezNUrJwQ4qZDzhmZv'}",
+  "sample_size_target": 100,
+  "model": "claude-sonnet-4-6",
+  "tc_tolerance_K": 10.0,
+  "formula_similarity_threshold": 0.8,
+  "note": "Re-run validation/dual_llm_consistency.py with a valid ANTHROPIC_API_KEY to populate the consistency tables."
+}

@@ -1,0 +1,194 @@
+{
+  "snapshot_id": "2026.05.13",
+  "api_base": "https://api.jzis.org/v1",
+  "dataset_version_reported": "v2026.05.12",
+  "last_ingest_at": "2026-05-12T15:33:40.124994+00:00",
+  "complete_year_window": [
+    1996,
+    2025
+  ],
+  "steps": [
+    {
+      "step": 1,
+      "name": "total_papers_ingested",
+      "value": 40057,
+      "source": "/v1/stats total_papers",
+      "description": "All arXiv superconductivity papers ingested by SCLib (1993-2026)."
+    },
+    {
+      "step": 2,
+      "name": "complete_year_window_papers_1996_2025",
+      "value": 39290,
+      "source": "/v1/stats papers_by_year filtered to 1996-2025",
+      "description": "Papers in the complete-year analysis window used by the manuscript."
+    },
+    {
+      "step": 3,
+      "name": "raw_material_records",
+      "value": 14083,
+      "source": "/v1/stats total_materials",
+      "description": "Distinct materials.records rows from NER (one per paper x material x condition)."
+    },
+    {
+      "step": 4,
+      "name": "materials_incl_pending_and_skeletons",
+      "value": 14083,
+      "source": "/v1/materials?include_pending=true&include_skeletons=true total",
+      "description": "All distinct material entities in SCLib, including unreviewed."
+    },
+    {
+      "step": 5,
+      "name": "materials_default_curated_public",
+      "value": 6585,
+      "source": "/v1/materials?limit=1 total",
+      "description": "Curator-approved, non-skeleton materials (default public list)."
+    },
+    {
+      "step": 6,
+      "name": "timeline_points_public_all",
+      "value": 13999,
+      "source": "/v1/timeline coverage.total_points",
+      "description": "Public timeline points (theoretical + experimental, dedup by SCLib rules)."
+    },
+    {
+      "step": 7,
+      "name": "timeline_materials_public_all",
+      "value": 4949,
+      "source": "/v1/timeline coverage.total_materials",
+      "description": "Distinct materials represented on the public timeline."
+    },
+    {
+      "step": 8,
+      "name": "timeline_points_experimental_only",
+      "value": 10928,
+      "source": "/v1/timeline?experimental_only=true coverage.total_points",
+      "description": "Timeline points filtered to experimental evidence."
+    },
+    {
+      "step": 9,
+      "name": "timeline_materials_experimental_only",
+      "value": 3805,
+      "source": "/v1/timeline?experimental_only=true coverage.total_materials",
+      "description": "Distinct materials surviving the experimental-only filter."
+    },
+    {
+      "step": 10,
+      "name": "experimental_points_complete_year_window_1996_2025",
+      "value": 10731,
+      "source": "/v1/timeline?experimental_only=true points filtered to 1996-2025",
+      "description": "Final point set entering the manuscript analyses."
+    },
+    {
+      "step": 11,
+      "name": "experimental_materials_complete_year_window_1996_2025",
+      "value": 3734,
+      "source": "derived: distinct materials in step 10",
+      "description": "Distinct materials behind the final point set."
+    }
+  ],
+  "retention_ratios": [
+    {
+      "label": "raw_material_records vs total_papers",
+      "from_step": 1,
+      "to_step": 3,
+      "from_value": 40057,
+      "to_value": 14083,
+      "ratio_to_from": 0.3516
+    },
+    {
+      "label": "all_materials vs raw_records",
+      "from_step": 3,
+      "to_step": 4,
+      "from_value": 14083,
+      "to_value": 14083,
+      "ratio_to_from": 1.0
+    },
+    {
+      "label": "curated_public vs all_materials",
+      "from_step": 4,
+      "to_step": 5,
+      "from_value": 14083,
+      "to_value": 6585,
+      "ratio_to_from": 0.4676
+    },
+    {
+      "label": "experimental_points vs all_timeline_points",
+      "from_step": 6,
+      "to_step": 8,
+      "from_value": 13999,
+      "to_value": 10928,
+      "ratio_to_from": 0.7806
+    },
+    {
+      "label": "complete_year_window vs experimental_points",
+      "from_step": 8,
+      "to_step": 10,
+      "from_value": 10928,
+      "to_value": 10731,
+      "ratio_to_from": 0.982
+    },
+    {
+      "label": "final_points vs total_papers",
+      "from_step": 1,
+      "to_step": 10,
+      "from_value": 40057,
+      "to_value": 10731,
+      "ratio_to_from": 0.2679
+    }
+  ],
+  "raw": {
+    "stats_total_papers": 40057,
+    "stats_total_materials": 14083,
+    "stats_total_chunks": 895622,
+    "papers_by_year": {
+      "1993": 3,
+      "1994": 16,
+      "1995": 97,
+      "1996": 171,
+      "1997": 526,
+      "1998": 694,
+      "1999": 985,
+      "2000": 1051,
+      "2001": 1471,
+      "2002": 1410,
+      "2003": 1453,
+      "2004": 1507,
+      "2005": 1200,
+      "2006": 1041,
+      "2007": 1248,
+      "2008": 1620,
+      "2009": 1485,
+      "2010": 1170,
+      "2011": 1423,
+      "2012": 1497,
+      "2013": 1728,
+      "2014": 1494,
+      "2015": 1311,
+      "2016": 1063,
+      "2017": 1334,
+      "2018": 1276,
+      "2019": 1509,
+      "2020": 1385,
+      "2021": 1784,
+      "2022": 1703,
+      "2023": 1836,
+      "2024": 1655,
+      "2025": 1260,
+      "2026": 651
+    },
+    "timeline_coverage": {
+      "total_points": 13999,
+      "total_materials": 4949,
+      "year_min": 1994,
+      "year_max": 2026
+    },
+    "timeline_experimental_coverage": {
+      "total_points": 10928,
+      "total_materials": 3805,
+      "year_min": 1994,
+      "year_max": 2026
+    },
+    "materials_default_total": 6585,
+    "materials_all_total": 14083
+  }
+}

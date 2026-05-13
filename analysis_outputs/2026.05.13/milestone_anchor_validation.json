@@ -1,0 +1,164 @@
+{
+  "milestone_count": 50,
+  "coverage": {
+    "found_in_api": 49,
+    "missing": 1,
+    "rate": 0.98
+  },
+  "tc_accuracy_within_10K": {
+    "matches": 37,
+    "denominator_found_and_sc": 48,
+    "rate": 0.7708,
+    "tolerance_K": 10.0
+  },
+  "pressure_class_agreement": {
+    "matches": 40,
+    "denominator_found": 49,
+    "rate": 0.8163
+  },
+  "public_q_endpoint": {
+    "note": "GET /v1/materials?q=<formula>&limit=20 sorts by tc_max and does not filter; the q parameter is currently a no-op.",
+    "queries_with_target_in_top20": 3,
+    "total_queries": 50
+  },
+  "missing_formulas": [
+    "Pb1Mo6S8"
+  ],
+  "tc_misses": [
+    {
+      "formula": "HgBa2Ca2Cu3O8",
+      "expected_tc": 134,
+      "sclib_tc_max": 165.0,
+      "sclib_tc_ambient": 151.0,
+      "delta": 17.0
+    },
+    {
+      "formula": "Nd2CuO4",
+      "expected_tc": 24,
+      "sclib_tc_max": null,
+      "sclib_tc_ambient": null,
+      "delta": null
+    },
+    {
+      "formula": "LaH10",
+      "expected_tc": 250,
+      "sclib_tc_max": 271.0,
+      "sclib_tc_ambient": null,
+      "delta": 21.0
+    },
+    {
+      "formula": "H3S",
+      "expected_tc": 203,
+      "sclib_tc_max": 248.0,
+      "sclib_tc_ambient": null,
+      "delta": 45.0
+    },
+    {
+      "formula": "YH6",
+      "expected_tc": 224,
+      "sclib_tc_max": 250.0,
+      "sclib_tc_ambient": null,
+      "delta": 26.0
+    },
+    {
+      "formula": "CeH9",
+      "expected_tc": 95,
+      "sclib_tc_max": 136.0,
+      "sclib_tc_ambient": null,
+      "delta": 41.0
+    },
+    {
+      "formula": "ThH10",
+      "expected_tc": 161,
+      "sclib_tc_max": 241.0,
+      "sclib_tc_ambient": null,
+      "delta": 80.0
+    },
+    {
+      "formula": "SnH4",
+      "expected_tc": 80,
+      "sclib_tc_max": 98.0,
+      "sclib_tc_ambient": null,
+      "delta": 18.0
+    },
+    {
+      "formula": "FeSe",
+      "expected_tc": 8,
+      "sclib_tc_max": 68.0,
+      "sclib_tc_ambient": 68.0,
+      "delta": 60.0
+    },
+    {
+      "formula": "Rb2CsC60",
+      "expected_tc": 33,
+      "sclib_tc_max": null,
+      "sclib_tc_ambient": null,
+      "delta": null
+    },
+    {
+      "formula": "Nd0.85Sr0.15NiO2",
+      "expected_tc": 15,
+      "sclib_tc_max": null,
+      "sclib_tc_ambient": null,
+      "delta": null
+    }
+  ],
+  "pressure_misses": [
+    {
+      "formula": "Nd2CuO4",
+      "expected_class": "ambient",
+      "sclib_class": "unknown",
+      "sclib_conditions": ""
+    },
+    {
+      "formula": "YBa2Cu4O8",
+      "expected_class": "ambient",
+      "sclib_class": "high_pressure",
+      "sclib_conditions": "P=1.02 GPa, powder, susceptibility, arXiv:cond-mat/0405643, confirmed by 2 papers"
+    },
+    {
+      "formula": "CaH6",
+      "expected_class": "high_pressure",
+      "sclib_class": "ambient_implicit",
+      "sclib_conditions": "arXiv:2512.03721, confirmed by 2 papers"
+    },
+    {
+      "formula": "CeCoIn5",
+      "expected_class": "ambient",
+      "sclib_class": "high_pressure",
+      "sclib_conditions": "P=1.04 GPa, single_crystal, resistivity, arXiv:cond-mat/0601280, confirmed by 3 papers"
+    },
+    {
+      "formula": "CeCu2Si2",
+      "expected_class": "ambient",
+      "sclib_class": "high_pressure",
+      "sclib_conditions": "P=3 GPa, single_crystal, resistivity, arXiv:cond-mat/0306054, confirmed by 2 papers"
+    },
+    {
+      "formula": "Rb2CsC60",
+      "expected_class": "ambient",
+      "sclib_class": "unknown",
+      "sclib_conditions": ""
+    },
+    {
+      "formula": "CaC6",
+      "expected_class": "ambient",
+      "sclib_class": "high_pressure",
+      "sclib_conditions": "P=9.5 GPa, susceptibility, arXiv:0904.3138, confirmed by 2 papers"
+    },
+    {
+      "formula": "LaPt2Si2",
+      "expected_class": "ambient",
+      "sclib_class": "high_pressure",
+      "sclib_conditions": "P=2 GPa, single_crystal, resistivity, arXiv:2004.03111, confirmed by 3 papers"
+    },
+    {
+      "formula": "Nd0.85Sr0.15NiO2",
+      "expected_class": "ambient",
+      "sclib_class": "unknown",
+      "sclib_conditions": ""
+    }
+  ],
+  "api_base": "https://api.jzis.org/v1",
+  "tolerance_K": 10.0
+}

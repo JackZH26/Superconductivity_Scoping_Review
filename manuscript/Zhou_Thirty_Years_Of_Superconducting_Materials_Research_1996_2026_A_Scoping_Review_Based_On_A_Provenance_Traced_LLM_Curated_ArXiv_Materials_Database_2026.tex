@@ -40,7 +40,9 @@ By the early 1990s the dominant research paradigm had been fixed: copper-oxide l
 
 \subsection{SCLib Corpus}
 
-SCLib indexes arXiv superconductivity papers, parses available full text, chunks the corpus for semantic retrieval, and extracts superconducting materials records using an LLM-assisted named-entity recognition pipeline. The API-level snapshot used for the first analysis pass was frozen on May 13, 2026 as \texttt{v2026.05.12}. It contains 40,057 papers, 14,083 material rows, 895,622 text chunks, 13,999 public timeline points, and 10,928 experimental-only timeline points.
+SCLib \cite{sclib2026} indexes arXiv \cite{arxiv2026} superconductivity papers, parses available full text, chunks the corpus for semantic retrieval, and extracts superconducting materials records using an LLM-assisted named-entity recognition pipeline. The API-level snapshot used for the first analysis pass was frozen on May 13, 2026 as \texttt{v2026.05.12}. It contains 40,057 papers, 14,083 material rows, 895,622 text chunks, 13,999 public timeline points, and 10,928 experimental-only timeline points.
+
+This scoping review follows the reporting conventions of the PRISMA Extension for Scoping Reviews (PRISMA-ScR) \cite{tricco2018prismascr,pageprisma2021}, adapted to the SCLib provenance-traced database setting; data-funnel counts and the corresponding screening logic are reported in Section~\ref{subsec:ner-validation}.
 
 The final manuscript analysis will use a frozen database-level export rather than the live public API. The current API snapshot is used to define the analysis plan and generate the first set of reproducible figures.
 
@@ -93,7 +95,7 @@ Taken together, the three validation exercises establish that the family-burst a
 
 \subsection{The Global Tc Landscape}
 
-The complete-year API snapshot from 1996--2025 contains 13,724 public SCLib timeline points after the website's conservative filtering. The distribution is not smooth. Instead, the timeline separates into a dense low-Tc region below 50 K, a much thinner 50--80 K band, a renewed density peak at 80--100 K, and a high-pressure frontier above 150 K.
+The complete-year API snapshot from 1996--2025 contains 13,724 public SCLib timeline points after the website's conservative filtering. The distribution is not smooth. Instead, the timeline separates into a dense low-Tc region below 50 K, a much thinner 50--80 K band, a renewed density peak at 80--100 K, and a high-pressure frontier above 150 K (Figure~\ref{fig:tc-bands}).
 
 \begin{figure}[htbp]
   \centering
@@ -112,7 +114,7 @@ The 50--80 K band is tested against adjacent 30--50 K and 80--100 K regimes usin
 
 \subsection{The 80--100 K Cuprate Plateau}
 
-The 80--100 K band is the most extreme family-composition asymmetry in the entire landscape. In the complete-year snapshot, cuprates account for 1{,}037 of 1{,}112 timeline points (93.3\%), with the next-largest contributors being the residual ``Other'' bucket (44 points), hydrides (19), fullerides (5), iron-based materials (4), chalcogenides (2), and a single nickelate. No non-cuprate family alone supplies more than 4\% of the band. This is in sharp contrast to the immediately lower 50--80 K band, where cuprates contribute 73.6\%, iron-based materials 16.1\%, and the long tail spans seven additional families. The 80--100 K region should therefore be interpreted as a single-family plateau rather than as a broadly populated multi-family high-Tc band.
+The 80--100 K band is the most extreme family-composition asymmetry in the entire landscape (Figure~\ref{fig:family-regimes}). In the complete-year snapshot, cuprates account for 1{,}037 of 1{,}112 timeline points (93.3\%), with the next-largest contributors being the residual ``Other'' bucket (44 points), hydrides (19), fullerides (5), iron-based materials (4), chalcogenides (2), and a single nickelate. No non-cuprate family alone supplies more than 4\% of the band. This is in sharp contrast to the immediately lower 50--80 K band, where cuprates contribute 73.6\%, iron-based materials 16.1\%, and the long tail spans seven additional families. The 80--100 K region should therefore be interpreted as a single-family plateau rather than as a broadly populated multi-family high-Tc band.
 
 The plateau is structurally narrow as well as compositionally narrow. Pulling 1{,}373 curated cuprate entries from the SCLib materials endpoint, 248 have $T_c^{\mathrm{max}}$ in the 80--100 K range, and 230 of these (92.7\%) are confirmed at ambient pressure. The two dominant structural families inside this band are the YBCO-type ``cuprate\_123'' phase (104 materials) and the BSCCO-type Bi-2212/2223 phases (28 materials). Hg-, Tl-, and Re-substituted variants of the 1223 phase dominate the very top of the plateau: 134--140 K is reached by Hg$_{0.8}$Tl$_{0.2}$Ba$_2$Ca$_2$Cu$_3$O$_{8.33}$, Hg/Cu-substituted 1223 phases, and the canonical YBa$_2$Cu$_3$O$_{6+x}$, all at ambient pressure. The yearly discovery histogram for plateau materials peaks in 1997--2004 (between 15 and 24 new ambient-pressure 80--100 K cuprates per year) and tapers but never closes: small numbers of new 80--100 K cuprate entries continue to appear annually through 2025.
 
@@ -261,10 +263,22 @@ The SCLib database is released as an open, versioned resource \cite{sclib2026} t
 
 \textbf{Conflict of interest}: The author declares no conflict of interest.
 
-\textbf{Data availability}: All data and code supporting this work are available 
-from the corresponding author upon reasonable request.
+\textbf{Data availability}: All data and code supporting this work are available
+from the corresponding author upon reasonable request. The SCLib database snapshot
+\texttt{v2026.05.12} and the analysis outputs underlying every figure and table in
+this manuscript are released through the SCLib repository \cite{sclib2026}; the
+primary literature corpus is drawn from arXiv \cite{arxiv2026}. The reporting
+framework follows PRISMA-ScR conventions for scoping reviews
+\cite{pageprisma2021,tricco2018prismascr}.
 
 \textbf{Ethics approval}: Not applicable.
+
+\textbf{Use of large language models}: Large language models (Google Gemini 2.5
+Flash and Anthropic Claude) were used to assist with material entity recognition
+during database construction (Section~\ref{subsec:ner-validation}) and for data
+extraction assistance during manuscript preparation. All extracted data were
+validated by the authors. The authors take full responsibility for the accuracy
+of the reported findings.
 
 \bibliographystyle{unsrtnat}
 \bibliography{references}

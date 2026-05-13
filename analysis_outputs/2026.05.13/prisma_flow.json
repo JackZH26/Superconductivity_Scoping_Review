@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "snapshot": "v2026.05.12",
+  "freeze_date": "2026-05-13",
+  "description": "PRISMA-ScR-style data funnel for the SCLib superconductivity scoping review. Counts are extracted from the frozen public API snapshot and used to render the manuscript flow diagram.",
+  "stages": [
+    {
+      "stage": "identification",
+      "label": "Records identified from arXiv via SCLib ingest",
+      "count": 40057,
+      "source": "SCLib /papers endpoint, snapshot v2026.05.12",
+      "key": "records_identified"
+    },
+    {
+      "stage": "screening_year_window",
+      "label": "Records retained after 1996-2025 complete-year window filter",
+      "count": 39290,
+      "source": "Year filter applied to SCLib papers; out-of-window papers retained in corpus but excluded from yearly statistics",
+      "key": "records_after_year_filter",
+      "excluded": 767,
+      "excluded_reason": "Outside complete-year analysis window (pre-1996 or post-2025 partial year)"
+    },
+    {
+      "stage": "extraction_raw",
+      "label": "Raw material-paper-condition records emitted by LLM-assisted NER pipeline",
+      "count": 14083,
+      "source": "SCLib /materials raw extraction table",
+      "key": "materials_extracted"
+    },
+    {
+      "stage": "curation_public",
+      "label": "Curator-approved, non-skeleton canonical materials in default public view",
+      "count": 6585,
+      "source": "SCLib /materials public endpoint after deduplication and needs_review suppression",
+      "key": "materials_public",
+      "excluded": 7498,
+      "excluded_reason": "Duplicate formula/family/phase, needs_review (implausible Tc, ambiguous formula, low extraction confidence), or skeleton entries"
+    },
+    {
+      "stage": "timeline_projection",
+      "label": "Public SCLib timeline points (theoretical + experimental, 1996-2025)",
+      "count": 13724,
+      "source": "Projection of curated materials onto yearly timeline, restricted to complete-year window",
+      "key": "timeline_points"
+    },
+    {
+      "stage": "experimental_filter_full",
+      "label": "Experimental-only timeline points (full corpus, 1994-2026)",
+      "count": 10928,
+      "source": "Experimental-only filter applied to timeline points across full corpus window",
+      "key": "experimental_only"
+    },
+    {
+      "stage": "experimental_filter_window",
+      "label": "Experimental-only timeline points inside 1996-2025 analysis window",
+      "count": 10731,
+      "source": "Experimental-only filter intersected with complete-year window; underlies experimental envelopes in Section 3",
+      "key": "experimental_1996_2025"
+    }
+  ],
+  "validation_anchors": {
+    "milestone_anchor_coverage": {
+      "covered": 49,
+      "total": 50,
+      "missing": ["Pb_{1}Mo_{6}S_{8}"],
+      "tc_precision_within_10K": {"correct": 37, "evaluated": 48},
+      "pressure_class_agreement": {"correct": 40, "evaluated": 49}
+    },
+    "dual_llm_consistency": {
+      "papers_sampled": 100,
+      "claude_records": 207,
+      "sclib_records": 425,
+      "agreement": {
+        "formula_string_sim_ge_0_8": 0.715,
+        "tc_within_10K": 0.556,
+        "pressure_class": 0.387,
+        "material_family": 0.971
+      }
+    }
+  },
+  "notes": [
+    "Each funnel stage discards a distinct artifact class: ingestion noise, repeated measurements, unreviewed formulas, and theoretical predictions.",
+    "The Tc-band structure reported in the manuscript is robust to each of these reductions in turn.",
+    "Counts are sourced from analysis_outputs/2026.05.13/data_funnel.json and run_summary.json."
+  ]
+}

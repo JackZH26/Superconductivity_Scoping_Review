@@ -85,13 +85,19 @@ The complete-year API snapshot from 1996--2025 contains 13,724 public SCLib time
 
 Aggregating the bands, the 0--50 K region contains 11,315 timeline points, compared with 905 points in the 50--80 K band, 1,112 points in the 80--100 K band, 249 points in the 100--150 K band, and 143 points in the 150--251 K band. The 50--80 K point-density ratio relative to the adjacent 30--50 K and 80--100 K regions is 0.422. The material-weighted version is similar, 0.447, suggesting that the visual gap is not solely a repeated-measurement artifact.
 
+The landscape described above is the surviving population after a multi-step extraction and curation funnel. The frozen \texttt{v2026.05.12} snapshot ingests 40{,}057 arXiv superconductivity papers in total, of which 39{,}290 lie inside the complete-year analysis window 1996--2025 (papers outside this window are retained in the corpus but excluded from yearly statistics). LLM-assisted named-entity recognition emits 14{,}083 raw material--paper--condition records, one per paper for each material under each reported measurement condition. The curated public materials view collapses these records to 6{,}585 canonical, curator-approved, non-skeleton materials by deduplicating along formula, family, structural phase, and pressure regime, and by suppressing entries flagged \texttt{needs\_review} for implausible Tc, ambiguous formula, or insufficient extraction confidence. Projecting curated materials onto the SCLib timeline yields 13{,}999 (theoretical $+$ experimental) public timeline points; restricting to 1996--2025 leaves the 13{,}724 points underlying the Tc-band counts above. Applying the experimental-only filter (which drops records classified as theoretical or DFT-based) further reduces the set to 10{,}928 experimental points over the full 1994--2026 window. Each step of the funnel discards a distinct artifact class --- ingestion noise, repeated measurements, unreviewed formulas, theoretical predictions --- and the Tc-band structure described below is robust to each of these reductions in turn.
+
 \subsection{The 50--80 K Gap}
 
 The 50--80 K band is tested against adjacent 30--50 K and 80--100 K regimes using point density and material density. This analysis separates repeated measurements from independent material occupancy. In the complete-year snapshot, the 50--80 K band contains 905 points, led by cuprates (666 points) and iron-based materials (146 points). This composition indicates that the band is not empty, but it lacks the dense, reproducible platform seen in the 80--100 K cuprate regime.
 
 \subsection{The 80--100 K Cuprate Plateau}
 
-Preliminary API-level data show that the 80--100 K band is dominated by cuprates, with YBa2Cu3O7-delta and related YBCO variants contributing a large fraction of repeated timeline points. In the complete-year snapshot, cuprates account for 1,037 of 1,112 points in this band (93.3\%). Thus the 80--100 K region should be interpreted as a cuprate plateau rather than as a broadly populated multi-family high-Tc band.
+The 80--100 K band is the most extreme family-composition asymmetry in the entire landscape. In the complete-year snapshot, cuprates account for 1{,}037 of 1{,}112 timeline points (93.3\%), with the next-largest contributors being the residual ``Other'' bucket (44 points), hydrides (19), fullerides (5), iron-based materials (4), chalcogenides (2), and a single nickelate. No non-cuprate family alone supplies more than 4\% of the band. This is in sharp contrast to the immediately lower 50--80 K band, where cuprates contribute 73.6\%, iron-based materials 16.1\%, and the long tail spans seven additional families. The 80--100 K region should therefore be interpreted as a single-family plateau rather than as a broadly populated multi-family high-Tc band.
+
+The plateau is structurally narrow as well as compositionally narrow. Pulling 1{,}373 curated cuprate entries from the SCLib materials endpoint, 248 have $T_c^{\mathrm{max}}$ in the 80--100 K range, and 230 of these (92.7\%) are confirmed at ambient pressure. The two dominant structural families inside this band are the YBCO-type ``cuprate\_123'' phase (104 materials) and the BSCCO-type Bi-2212/2223 phases (28 materials). Hg-, Tl-, and Re-substituted variants of the 1223 phase dominate the very top of the plateau: 134--140 K is reached by Hg$_{0.8}$Tl$_{0.2}$Ba$_2$Ca$_2$Cu$_3$O$_{8.33}$, Hg/Cu-substituted 1223 phases, and the canonical YBa$_2$Cu$_3$O$_{6+x}$, all at ambient pressure. The yearly discovery histogram for plateau materials peaks in 1997--2004 (between 15 and 24 new ambient-pressure 80--100 K cuprates per year) and tapers but never closes: small numbers of new 80--100 K cuprate entries continue to appear annually through 2025.
+
+This plateau corresponds to the empirical ceiling of ambient-pressure superconductivity that has resisted displacement for three decades. The maximum experimental, ambient-or-low-pressure Tc in the entire snapshot is 134 K (Section~\ref{subsec:theory-experiment}), and every record in this top band is a Hg-, Tl-, or Y-cuprate. Theoretical work in the band remains active --- 122 of the 1{,}112 points are theoretical --- but does not extend the family inventory beyond cuprate variants. Within current theoretical frameworks, the 80--100 K plateau is the ambient-pressure asymptote of $d$-wave cuprate superconductivity and is the natural baseline against which any new ambient-pressure high-Tc claim must be compared.
 
 \begin{figure}[htbp]
   \centering
@@ -100,17 +106,72 @@ Preliminary API-level data show that the 80--100 K band is dominated by cuprates
   \label{fig:family-regimes}
 \end{figure}
 
-\subsection{Family Burst Events}
+\subsection{The 150 K+ High-Pressure Hydride Frontier}
 
-The strongest preliminary burst is the 2008 iron-based wave. Canonical external discovery anchoring is provided by Kamihara et al.'s report of La[O1-xFx]FeAs with Tc = 26 K \cite{kamihara2008iron}. SCLib's arXiv timeline captures rapid follow-on activity through LaFeAsO and rare-earth FeAsO variants within 2008.
+The 150 K+ region of the Tc landscape is qualitatively different from every band below it. In the complete-year snapshot, the 150--251 K bin contains 143 points, of which 113 (79.0\%) are tagged as hydrides; the remainder is split between a residual ``Other'' bucket (24 points), four extreme-condition cuprate entries, and two fulleride theory entries. The evidence-regime composition of this bin is dominated by theory and by high pressure: across the regime tally, the maximum experimental ambient-or-low-pressure Tc is 134 K, whereas the high-pressure experimental envelope reaches 250 K, and theoretical regimes (ambient and high pressure combined) extend to 175 K and 250 K respectively (Table~\ref{tab:evidence-regime}). The 150 K+ band is therefore not a continuation of the cuprate plateau into higher Tc; it is a distinct, pressure-stabilized frontier.
 
-Other candidate bursts include MgB2 after the 2001 discovery of 39 K superconductivity \cite{nagamatsu2001mgb2}, high-pressure hydrides after sulfur hydride at 203 K \cite{drozdov2015h3s}, kagome superconductors after the AV3Sb5 wave, and nickelates after infinite-layer and bilayer discoveries \cite{li2019nickelate,sun2023nickelate}.
+Pulling the 251 curated hydride entries from the SCLib materials endpoint sharpens this picture. 48 hydrides have $T_c^{\mathrm{max}} \geq 150$ K. None are reported at ambient pressure; all carry either an explicit high-pressure measurement context (typical synthesis pressures of 150--250 GPa) or an unknown-pressure label that follow-up validation has not been able to demote to ambient. The headline experimentally measured records --- H$_3$S at 203 K \cite{drozdov2015h3s} and LaH$_{10}$ at 250--260 K --- both appear in the database with explicit megabar pressures, as do CaH$_6$, YH$_6$, YH$_9$, and the recent (La,Y)H$_{10}$ and (La,Y)H$_6$ ternary entries. Several additional entries above 280 K (e.g.\ LaSc$_2$H$_{24}$ at 298 K, CaLuH$_{12}$ at 294 K, LuBeH$_8$ at 293 K, YH$_{10}$ at 290 K) are theoretical DFT predictions and are tagged as such in the snapshot; they do not represent confirmed experimental Tc.
 
-Using the burst score defined above, the iron-based 2008 event is the largest candidate in the complete-year snapshot: 356 timeline points, 206 unique material labels, 190 source papers, and a burst score of 357. Within 2008, iron-based activity appears immediately in March and remains high through the year, with the largest monthly count in June (76 points, 56 material labels, 41 source papers). Preliminary validation of a 100-row iron-based 2008 sample supports the burst as a real discovery-driven wave rather than a pure extraction artifact, while also revealing theory--experiment flag errors in several experimental spectroscopy, transport, synthesis, and thermodynamic papers. Other candidate events include kagome superconductors in 2021, MgB2 in 2002, bismuthates in 2013--2014, and chalcogenides in 2013; each requires manual validation before being described as a true discovery-driven burst.
+The temporal ordering of theory and experiment is the second distinctive feature of this frontier. The 150 K+ hydride entry count, plotted by SCLib discovery year, is essentially zero before 2013, rises with CaH$_6$ predictions in 2013--2014, jumps to 5 entries in 2015 (the year H$_3$S was confirmed), and grows monotonically thereafter: 2 entries in 2017, 2 in 2018, 2 in 2019 (year of LaH$_{10}$), 6 in 2020, 7 in 2021, 4 in 2022, 3 in 2023, 7 in 2024, 6 in 2025, and an additional 2 already in the partial 2026 window. The yearly hydride sub-corpus (Section~\ref{subsec:bursts}) confirms that the theoretical/experimental ratio is heavily skewed: in 2023--2025, hydride entries are 55 of 60, 51 of 55, and 73 of 79 theoretical, respectively. The dominant pattern is that DFT predictions arrive years before any high-pressure measurement, and that confirmed experimental Tc above 200 K remains restricted to a small set of binary and ternary hydrides under megabar pressure. Quantitative claims that hydrides have ``raised the Tc ceiling'' are correct only with explicit pressure and evidence-class qualifiers.
+
+\subsection{Five Burst Waves: MgB$_2$, Iron-Based, Hydride, Kagome, Nickelate}
+\label{subsec:bursts}
+
+Applying the burst rule $B_{f,y}=(C_{f,y}+1)/(\overline{C}_{f,y-3:y-1}+1)$ with the thresholds $C_{f,y}\geq 20$, $M_{f,y}\geq 3$, $B_{f,y}\geq 3$ to the complete-year family--year aggregate identifies five materials waves over the 1996--2025 window. Two satisfy the strict numerical criterion (MgB$_2$ in 2002, iron-based in 2008, and kagome AV$_3$Sb$_5$ in 2021); two are visible as elevated activity but do not pass the formal threshold (hydrides in 2015--2019 and nickelates in 2019/2023+). All five are documented in Table~\ref{tab:bursts}.
+
+The iron-based 2008 event is the dominant burst in the dataset by every metric: 356 points, 206 unique material labels, 190 source papers, a $B_{f,y}$ of 357, and a maximum reported Tc of 57.4 K. Within 2008, iron-based activity appears in March and remains high all year, peaking in June (76 points, 56 material labels, 41 source papers). The wave is anchored externally by Kamihara et al.'s report of La[O$_{1-x}$F$_x$]FeAs at 26 K \cite{kamihara2008iron} and propagates through LaFeAsO, rare-earth (Sm, Ce, Nd, Pr, Gd) FeAsO variants, doping series, BaFe$_2$As$_2$, and FeSe within months. Validation of a 100-row sample (Section 4) supports the burst as a discovery-driven wave rather than an extraction artifact, with the main residual data-quality issue being theory/experiment misclassification of spectroscopy, transport, synthesis, and thermodynamic papers.
+
+The MgB$_2$ 2001--2003 wave is the earliest in the window. The 2001 spike has $B_{f,y}=16$ but is masked by the formal candidate threshold because the prior three years are essentially empty, so the relative score is dominated by a tiny denominator. The 2002 spike is the formal candidate: 34 points, 25 material labels, 12 source papers, $B_{f,y}=5.83$, and a maximum reported Tc of 38.4 K. Activity halves by 2004 and is essentially exhausted by 2007. The external anchor is Nagamatsu et al.'s discovery of 39 K superconductivity in MgB$_2$ \cite{nagamatsu2001mgb2}.
+
+The high-pressure hydride wave is broader and slower than the iron-based wave and never produces a single year that passes the $C_{f,y}\geq 20$ threshold until 2023, but it shows a sustained rise from 2015 onward. The 2015 cohort (19 points, 10 materials, 10 papers, $B_{f,y}=3.75$, max Tc 250 K) is externally anchored by the H$_3$S report \cite{drozdov2015h3s}. The 2017--2019 entries reflect CaH$_6$, ThH$_{10}$, YH$_6$, LaH$_{10}$, and YH$_9$. Activity then accelerates from 2023 onward (60 points), 2024 (55), and 2025 (79), driven predominantly by DFT predictions; the experimental/theoretical ratio in these years is approximately $1{:}10$.
+
+The kagome 2021 burst is the most prominent post-pandemic event: 30 points, 3 material labels (KV$_3$Sb$_5$, RbV$_3$Sb$_5$, CsV$_3$Sb$_5$), 15 source papers, $B_{f,y}=15.5$, and a maximum reported Tc of 8.9 K. The wave is anchored by the discovery of AV$_3$Sb$_5$ charge-density-wave / superconducting coexistence. Activity persists in 2022--2025 at 14--22 points per year, indicating a transition from initial-discovery burst to sustained research field.
+
+The nickelate wave has two visible components. The 2008 infinite-layer Nd-nickelate signal (12 points, 11 materials, 7 papers, $B_{f,y}=13$) is too small for the formal candidate cutoff but is structurally analogous to the early MgB$_2$ entries. The post-2019 component begins with the infinite-layer Nd$_{0.8}$Sr$_{0.2}$NiO$_2$ report \cite{li2019nickelate} and is then strongly reactivated by the bilayer La$_3$Ni$_2$O$_7$ discovery in 2023 \cite{sun2023nickelate}; 2023 shows 16 points and a maximum Tc of 67 K, 2024 shows 18 points at 82.5 K, and 2025 shows 28 points at 70.3 K. The nickelate wave is the only one of the five that is still accelerating at the snapshot date.
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \begin{tabular}{lllrrrr}
+  \toprule
+  Wave & Peak year(s) & Anchor material & Peak Tc (K) & $B_{f,y}$ & Points & Papers \\
+  \midrule
+  MgB$_2$              & 2002          & MgB$_2$                            & 38.4   & 5.83   & 34   & 12  \\
+  Iron-based           & 2008          & LaO$_{1-x}$F$_x$FeAs               & 57.4   & 357    & 356  & 190 \\
+  Hydride              & 2015 / 2023+  & H$_3$S, LaH$_{10}$, YH$_9$         & 250    & 3.75$^{\dagger}$ & 19 / 60--79 & 10 / 16--19 \\
+  Kagome               & 2021          & CsV$_3$Sb$_5$ family               & 8.9    & 15.5   & 30   & 15  \\
+  Nickelate            & 2023+         & Nd$_{0.8}$Sr$_{0.2}$NiO$_2$, La$_3$Ni$_2$O$_7$ & 82.5 & 2.68$^{\dagger}$ & 16--28 & 5--17 \\
+  \bottomrule
+  \end{tabular}
+  \caption{Family burst events identified in the complete-year SCLib snapshot, 1996--2025. Points and papers are SCLib timeline counts in the burst year (or hydride/nickelate sustained-rise range). $^{\dagger}$ Hydride and nickelate waves do not satisfy the strict $C_{f,y}\geq 20$, $M_{f,y}\geq 3$, $B_{f,y}\geq 3$ rule simultaneously but are visible as sustained activity-elevation events. MgB$_2$ 2001 has $B_{f,y}=16$ but fewer than 20 points and so is reported as part of the 2001--2003 wave with 2002 as the formal candidate year.}
+  \label{tab:bursts}
+\end{table}
 
 \subsection{Theory Versus Experiment}
+\label{subsec:theory-experiment}
 
-The 150 K+ region is dominated by high-pressure and theoretical hydride records. This regime is not directly comparable to the ambient-pressure cuprate plateau and must be reported with pressure and evidence class. In the complete-year snapshot, the 150--251 K regime contains 143 points, of which 113 are tagged as hydrides. The evidence-regime split further shows why pressure metadata matters: the maximum experimental ambient-or-low-pressure Tc in the current public snapshot is 134 K, whereas high-pressure or unknown-pressure experimental records and theoretical records extend to much higher values.
+The six evidence regimes defined by crossing the experimental/theoretical axis with the ambient-low/high/unknown pressure axis carry very different maxima (Table~\ref{tab:evidence-regime}). The experimental ambient-or-low-pressure regime is the most constrained: 3{,}466 points, 1{,}413 materials, and a maximum Tc of 134 K, anchored by the Hg-cuprate 1223 family. The experimental unknown-pressure regime, which is dominated by older papers without machine-readable pressure metadata, reaches 244 K and contains 2{,}607 materials; this is the bin most in need of full-text re-validation. Experimental high-pressure entries are smaller in count (590 points) but extend the experimental ceiling to 250 K. Both theoretical regimes also extend to 250 K, but at lower point counts (1{,}095 ambient-or-low and 452 high-pressure), and are dominated by DFT-based hydride predictions.
+
+This stratification is the operational reason that the manuscript treats ``theory'' and ``experiment'' as separate envelopes (Figure~\ref{fig:evidence-envelope}) and treats ``high pressure'' separately from ``ambient or low pressure.'' A single max-Tc line aggregated across all regimes would overstate the ambient experimental ceiling by a factor of 1.9 (250 K vs 134 K) and would conflate theoretical predictions with measured records.
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \begin{tabular}{lrrrr}
+  \toprule
+  Evidence regime & Points & Materials & Papers & Max Tc (K) \\
+  \midrule
+  experimental, unknown pressure        & 6{,}675 & 2{,}607 & 3{,}317 & 244 \\
+  experimental, ambient or low pressure & 3{,}466 & 1{,}413 & 1{,}710 & 134 \\
+  theoretical,  unknown pressure        & 1{,}446 &   864   &   856   & 250 \\
+  theoretical,  ambient or low pressure & 1{,}095 &   665   &   545   & 175 \\
+  experimental, high pressure           &   590   &   279   &   305   & 250 \\
+  theoretical,  high pressure           &   452   &   228   &   185   & 250 \\
+  \bottomrule
+  \end{tabular}
+  \caption{Six evidence regimes in the complete-year snapshot, 1996--2025. Missing pressure is not treated as ambient.}
+  \label{tab:evidence-regime}
+\end{table}
 
 \begin{figure}[htbp]
   \centering
@@ -118,6 +179,10 @@ The 150 K+ region is dominated by high-pressure and theoretical hydride records.
   \caption{Yearly maximum Tc separated by evidence and pressure regime. Missing pressure is not treated as ambient; records with unknown pressure are shown as separate regimes.}
   \label{fig:evidence-envelope}
 \end{figure}
+
+\subsection{2026: Partial-Year Observation}
+
+The 2026 component of the snapshot is incomplete by construction --- the data freeze date is May 13, 2026, and only 651 arXiv superconductivity papers had been ingested for the calendar year at the cutoff. With this caveat, the 2026 cohort already contains 158 curated materials, distributed across hydrides (42), chalcogenides (24), nickelates (23), conventional superconductors (19), iron-based materials (10), cuprates (8), elemental superconductors (4), heavy-fermion compounds (3), and a long unfamilied tail (59). The top of the 2026 Tc table remains a hydride frontier under predicted megabar pressure: ScLuH$_{12}$ (287 K), YCaH$_{12}$ (253 K), and La$_{0.75}$Ba$_{0.25}$H$_{5.75}$ (183 K). The single most notable ambient-pressure 2026 entry to date is a Li-substituted Bi-2223 cuprate at 111.4 K, consistent with the long-standing ambient-pressure cuprate ceiling. The nickelate wave continues, with eight bilayer or trilayer La--Pr/Sr/Nd Ni$_2$O$_7$ entries between 30 K and 68.5 K, and a continued growth in ambient-SC nickelate variants. None of the partial-2026 entries displace the established cuprate ambient-pressure plateau or the hydride high-pressure ceiling, but the persistence of nickelate growth and the appearance of new ambient-pressure cuprate substitutions above 110 K are the two trends most worth tracking in the next data freeze.
 
 \section{Data Quality and Preliminary Validation}
 

@@ -1,0 +1,16 @@
+{
+  "papers_processed": 100,
+  "skipped": 0,
+  "paired_records": 83,
+  "model_gemini": "gemini-2.5-flash",
+  "model_claude": "claude-sonnet-4-6",
+  "input": "IDENTICAL full text title+abstract+chunks \u226416k chars",
+  "prompt": "IDENTICAL SCLib V2 NER prompt",
+  "agreement": {
+    "formula_sim_ge_0.8": 0.7349397590361446,
+    "tc_within_10K": 0.42168674698795183,
+    "pressure_class": 0.7710843373493976,
+    "family": 0.8554216867469879,
+    "evidence_type": 0.8674698795180723
+  }
+}
